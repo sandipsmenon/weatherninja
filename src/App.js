@@ -1,6 +1,7 @@
 import React from 'react';
-import Weather from "./components/Weather";
+
 import './index.css';
+import Titles from "./components/Titles";
 const API_KEY = "7a4ea6e9001f672434026e5156629be3";
 export default class App extends React.Component {
   constructor() {
@@ -9,6 +10,8 @@ export default class App extends React.Component {
       zoom: 13,
       maptype: 'roadmap',
       place_formatted: '',
+      lat:'',
+      lon:'',
       place_id: '',
       place_location: '',
       temperature: undefined,
@@ -51,11 +54,14 @@ export default class App extends React.Component {
     autoComplete.addListener('place_changed', () => {
       let place = autoComplete.getPlace();
       let location = place.geometry.location;
-
+      let lat = place.geometry.location.lat();
+      let lon = place.geometry.location.lng();
       this.setState({
         place_formatted: place.formatted_address,
         place_id: place.place_id,
         place_location: location.toString(),
+        lat:lat,
+        lon:lon
       });
 
       // bring the selected place in view on the map
@@ -67,17 +73,17 @@ export default class App extends React.Component {
         location: location,
       });
 
-      this.getWeather(this.state.place_formatted);
+      this.getWeather(this.state.lat,this.state.lon);
     });
   }
 
-    getWeather = async (x) => {
+    getWeather = async (x,y) => {
       //  e.preventDefault();
-        const city = x;//e.target.elements.city.value;
-        const country = 'india';//e.target.elements.country.value;
-        const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`);
+        const latitude = x;//e.target.elements.city.value;
+        const longitude = y;//e.target.elements.country.value;
+        const api_call = await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`);
         const data = await api_call.json();
-        if (city && country) {
+        if (latitude && longitude) {
             this.setState({
                 temperature: data.main.temp,
                 city: data.name,
@@ -99,30 +105,51 @@ export default class App extends React.Component {
     }
   render() {
     return (
-      <div id='app'>
-	  <div id='state'>
-	  <p>Place: {this.state.place_formatted}</p>
-<p>Place ID: {this.state.place_id}</p>
-<p>Location: {this.state.place_location}</p>
-  <h1>State</h1>
-  <p>
-    Zoom level: {this.state.zoom}<br />
-    Map type: {this.state.maptype}
-  </p>
-</div>
-          <Weather
-              temperature={this.state.temperature}
-              humidity={this.state.humidity}
-              city={this.state.city}
-              country={this.state.country}
-              description={this.state.description}
-              error={this.state.error}
-          />
-<div id='pac-container'>
-  <input id='pac-input' type='text' placeholder='Enter a location' />
-</div>
-        <div id='map' />
-      </div>
+        <div id="app">
+            <div className="wrapper">
+                <div className="main">
+
+                        <div id='state'>
+
+                            {
+                                this.state.city &&  this.state.country && <p className="weather__key"> Location:
+                                    <span className="weather__value"> {  this.state.city }, {  this.state.country }</span>
+                                </p>
+                            }
+
+                            {
+                                this.state.temperature && <p className="weather__key"> Temperature:
+                                    <span className="weather__value"> { this.state.temperature }	</span>
+                                </p>
+                            }
+                            {
+                                this.state.humidity && <p className="weather__key"> Humidity:
+                                    <span className="weather__value"> { this.state.humidity } </span>
+                                </p>
+                            }
+                            {
+                                this.state.description && <p className="weather__key"> Conditions:
+                                    <span className="weather__value"> { this.state.description } </span>
+                                </p>
+                            }
+                            {
+                                this.state.error && <p className="weather__error">{ this.state.error }</p>
+                            }
+
+                        </div>
+
+
+
+
+
+                        <div id='pac-container'>
+                            <input id='pac-input' type='text' placeholder='Enter a location' />
+                        </div>
+                        <div id='map' />
+
+                </div>
+            </div>
+        </div>
     );
   }
 };
