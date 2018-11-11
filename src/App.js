@@ -17,7 +17,8 @@ export default class App extends React.Component {
       city: undefined,
       country: undefined,
       humidity: undefined,
-      description: undefined
+      description: undefined,
+      futureWeather:undefined
     };
   }
 
@@ -73,6 +74,7 @@ export default class App extends React.Component {
       });
 
       this.getWeather(this.state.lat,this.state.lon);
+      this.getFutureWeather(this.state.lat,this.state.lon);
     });
   }
 
@@ -101,6 +103,23 @@ export default class App extends React.Component {
                 error: "Please enter the values."
             });
         }
+    }
+    getFutureWeather = async (x,y) => {
+        //  e.preventDefault();
+        const latitude = x;//e.target.elements.city.value;
+        const longitude = y;//e.target.elements.country.value;
+        const api_call = await fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${API_KEY}&units=metric`);
+        const data = await api_call.json();
+		if (latitude && longitude) {
+            this.setState({
+                futureWeather: data.list
+            });
+        } else {
+            this.setState({
+                futureWeather: undefined
+            });
+        }
+
     }
   render() {
     return (
@@ -158,18 +177,37 @@ export default class App extends React.Component {
                                 </div>
                             }
                             {
-                                this.state.city && this.state.country &&
+                                this.state.futureWeather &&
                                 <table className="tg">
                                     <thead>
                                     <tr>
                                         <th className="tg-yw4l"/>
                                         <th className="tg-p8bj">Date</th>
-                                        <th className="tg-p8bj">Summary</th>
                                         <th className="tg-p8bj">Temp High</th>
                                         <th className="tg-p8bj">Temp Low</th>
-                                        <th className="tg-9hbo">Sunrise</th>
+                                        <th className="tg-p8bj">Condition</th>
+                                        <th className="tg-9hbo">Humidity</th>
                                     </tr>
                                     </thead>
+                                    <tbody>
+                                    {
+                                        this.state.futureWeather.map((data, index) => {
+
+                                            let myIcon = data.dt_txt;
+                                            let count  = index+1;
+                                            return (
+                                                <tr key={index}>
+                                                    <td>{count}</td>
+                                                    <td>{myIcon}</td>
+                                                    <td>{data.main.temp_max}</td>
+                                                    <td>{data.main.temp_min}</td>
+                                                    <td>{data.weather[0].description}</td>
+                                                    <td>{data.main.humidity}</td>
+                                                </tr>
+                                            );
+                                        })
+                                    }
+                                    </tbody>
                                 </table>
                             }
                         </div>
