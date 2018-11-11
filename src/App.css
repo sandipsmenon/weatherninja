@@ -178,7 +178,21 @@ button:active {
   border-collapse: collapse;
   border-spacing: 0;
   border-color: #ccc;
+  margin-left: 100%;
+  width:400%;
+  table-layout: fixed;
+
 }
+
+.tg tbody{
+
+  overflow:auto;
+  height:200px;
+  overflow: auto;
+
+}
+
+
 .tg td {
   font-family: Arial, sans-serif;
   font-size: 14px;

@@ -197,7 +197,7 @@ export default class App extends React.Component {
                                             let count  = index+1;
                                             return (
                                                 <tr key={index}>
-                                                    <td>{count}</td>
+                                                    <td >{count}</td>
                                                     <td>{myIcon}</td>
                                                     <td>{data.main.temp_max}</td>
                                                     <td>{data.main.temp_min}</td>
