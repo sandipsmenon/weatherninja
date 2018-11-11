@@ -14,10 +14,10 @@
 }
 
 .element.style{
-position: relative;
-float: left;
-z-index: 2;
-background-color: lightblue;
+  position: relative;
+  float: left;
+  z-index: 2;
+  background-color: lightblue;
 }
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
@@ -115,13 +115,13 @@ input[type="text"] {
   font-size: 20px;
 }
 
-input[type="text"] { 
-    outline: none;
+input[type="text"] {
+  outline: none;
 }
 
 input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 30px #2c3e50 inset;
-    -webkit-text-fill-color: #fff !important;
+  -webkit-box-shadow: 0 0 0 30px #2c3e50 inset;
+  -webkit-text-fill-color: #fff !important;
 }
 
 button {
@@ -174,72 +174,44 @@ button:active {
   font-weight: 200;
 }
 
-.tg {
-  border-collapse: collapse;
-  border-spacing: 0;
-  border-color: #ccc;
-  margin-left: 100%;
-  width:400%;
+
+
+.fixed_header{
+  width: 800px;
   table-layout: fixed;
-
+  border-collapse: collapse;
+  margin-left: 100%;
 }
 
-.tg tbody{
-
-  overflow:auto;
-  height:200px;
+.fixed_header tbody{
   overflow: auto;
-
+  height: 100px;
+  display:block;
 }
 
+.fixed_header thead {
+  background: #337ab7;
+  color:#fff;
+}
 
-.tg td {
-  font-family: Arial, sans-serif;
-  font-size: 14px;
+.fixed_header th {
+
+  text-align: left;
+  width: 200px;
   padding: 10px 5px;
   border-style: solid;
   border-width: 1px;
-  overflow: hidden;
-  word-break: normal;
-  border-color: #ccc;
-  color: #333;
-  background-color: #fff;
+  white-space: nowrap;
 }
-.tg th {
-  font-family: Arial, sans-serif;
-  font-size: 14px;
-  font-weight: normal;
+
+.fixed_header td {
+
+  text-align: left;
+  width: 200px;
   padding: 10px 5px;
   border-style: solid;
   border-width: 1px;
-  overflow: hidden;
-  word-break: normal;
-  border-color: #ccc;
-  color: #333;
-  background-color: #f0f0f0;
 }
-.tg .tg-dc35 {
-  background-color: #f9f9f9;
-  border-color: inherit;
-  vertical-align: top;
-}
-.tg .tg-us36 {
-  border-color: inherit;
-  vertical-align: top;
-}
-.tg .tg-yw4l {
-  vertical-align: top;
-}
-.tg .tg-p8bj {
-  font-weight: bold;
-  border-color: inherit;
-  vertical-align: top;
-}
-.tg .tg-9hbo {
-  font-weight: bold;
-  vertical-align: top;
-}
-.tg .tg-b7b8 {
-  background-color: #f9f9f9;
-  vertical-align: top;
+.fixed_header thead tr{
+  display:block;
 }

@@ -178,15 +178,15 @@ export default class App extends React.Component {
                             }
                             {
                                 this.state.futureWeather &&
-                                <table className="tg">
+                                <table className="fixed_header">
                                     <thead>
                                     <tr>
-                                        <th className="tg-yw4l"/>
-                                        <th className="tg-p8bj">Date</th>
-                                        <th className="tg-p8bj">Temp High</th>
-                                        <th className="tg-p8bj">Temp Low</th>
-                                        <th className="tg-p8bj">Condition</th>
-                                        <th className="tg-9hbo">Humidity</th>
+                                        <th />
+                                        <th>Date</th>
+                                        <th>Temp High</th>
+                                        <th>Temp Low</th>
+                                        <th>Condition</th>
+                                        <th>Humidity</th>
                                     </tr>
                                     </thead>
                                     <tbody>
