@@ -1,7 +1,6 @@
 import React from 'react';
 
 import './index.css';
-import Titles from "./components/Titles";
 const API_KEY = "7a4ea6e9001f672434026e5156629be3";
 export default class App extends React.Component {
   constructor() {
@@ -120,7 +119,7 @@ export default class App extends React.Component {
                     My Weather App
                 </h1>
             </header>
-            <div className="wrapper">
+
                 <div className="main">
 
                         <div id='state'>
@@ -149,20 +148,40 @@ export default class App extends React.Component {
                             {
                                 this.state.error && <p className="weather__error">{ this.state.error }</p>
                             }
-
+                            {
+                                this.state.city && this.state.country &&
+                                <div>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                    <br/>
+                                </div>
+                            }
+                            {
+                                this.state.city && this.state.country &&
+                                <table className="tg">
+                                    <thead>
+                                    <tr>
+                                        <th className="tg-yw4l"/>
+                                        <th className="tg-p8bj">Date</th>
+                                        <th className="tg-p8bj">Summary</th>
+                                        <th className="tg-p8bj">Temp High</th>
+                                        <th className="tg-p8bj">Temp Low</th>
+                                        <th className="tg-9hbo">Sunrise</th>
+                                    </tr>
+                                    </thead>
+                                </table>
+                            }
                         </div>
 
 
-
-
-
-                        <div id='pac-container'>
+                    <div id='pac-container'>
                             <input id='pac-input' type='text' placeholder='Enter a location' />
                         </div>
-                        <div id='map' />
+                    <div id='map' />
 
                 </div>
-            </div>
+
         </div>
     );
   }

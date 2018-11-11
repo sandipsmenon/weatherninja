@@ -8,6 +8,12 @@
   position: relative;
 }
 
+#root, #app, #map {
+
+
+  height: 60%;
+
+}
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 50px;
@@ -29,7 +35,7 @@
 }
 
 body {
-  font-family: "Open Sans", serif;
+  font-family: sans-serif;
 }
 
 .wrapper {
@@ -42,9 +48,9 @@ body {
 
 .main {
   height: 90vh;
-  background: #ead7c4;
+  background: lightblue;
   box-shadow: 0px 13px 40px -13px rgba(0,0,0,0.75);
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -134,6 +140,7 @@ button:active {
   border-bottom: solid 2px rgba(255,255,255,0.06);
   padding: 20px 0 20px 0;
   font-weight: 400;
+  font-family: sans-serif;
 }
 
 .weather__key:last-child {
@@ -143,6 +150,7 @@ button:active {
 .weather__value {
   color: #552020;
   font-weight: 200;
+  font-family: sans-serif;
 }
 
 .weather__error {
@@ -150,4 +158,60 @@ button:active {
   font-size: 20px;
   letter-spacing: 1px;
   font-weight: 200;
+}
+
+.tg {
+  border-collapse: collapse;
+  border-spacing: 0;
+  border-color: #ccc;
+}
+.tg td {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  padding: 10px 5px;
+  border-style: solid;
+  border-width: 1px;
+  overflow: hidden;
+  word-break: normal;
+  border-color: #ccc;
+  color: #333;
+  background-color: #fff;
+}
+.tg th {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  padding: 10px 5px;
+  border-style: solid;
+  border-width: 1px;
+  overflow: hidden;
+  word-break: normal;
+  border-color: #ccc;
+  color: #333;
+  background-color: #f0f0f0;
+}
+.tg .tg-dc35 {
+  background-color: #f9f9f9;
+  border-color: inherit;
+  vertical-align: top;
+}
+.tg .tg-us36 {
+  border-color: inherit;
+  vertical-align: top;
+}
+.tg .tg-yw4l {
+  vertical-align: top;
+}
+.tg .tg-p8bj {
+  font-weight: bold;
+  border-color: inherit;
+  vertical-align: top;
+}
+.tg .tg-9hbo {
+  font-weight: bold;
+  vertical-align: top;
+}
+.tg .tg-b7b8 {
+  background-color: #f9f9f9;
+  vertical-align: top;
 }
