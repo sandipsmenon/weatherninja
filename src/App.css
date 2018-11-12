@@ -33,6 +33,14 @@
 
 .App-title {
   font-size: 1.5em;
+  margin-left:30%;
+  white-space: nowrap;
+}
+
+.App-subtitle {
+  font-size: 1.5em;
+  margin-left:100%;
+  white-space: nowrap;
 }
 
 .App-intro {

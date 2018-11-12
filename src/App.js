@@ -157,11 +157,11 @@ export default class App extends React.Component {
                             {
                                 this.state.city && this.state.country &&
                                 <div>
-                                    <br/>
-                                    <br/>
-                                    <br/>
-                                    <br/>
+                                 
                                 </div>
+                            }
+                            {
+                                this.state.city && <p className="App-subtitle">Five Day Forecast</p>
                             }
                             {
                                 this.state.futureWeather &&
