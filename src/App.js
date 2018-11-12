@@ -131,7 +131,7 @@ export default class App extends React.Component {
                         <div id='state'>
 
                             {
-                                this.state.city &&  this.statecountry && <p className="weather__key"> Location:
+                                this.state.city && <p className="weather__key"> Location:
                                     <span className="weather__value"> {  this.state.city }, {  this.state.country }</span>
                                 </p>
                             }
