@@ -1,4 +1,5 @@
 import React from 'react';
+import Titles from './components/Titles';
 
 import './index.css';
 const API_KEY = "7a4ea6e9001f672434026e5156629be3";
@@ -124,27 +125,13 @@ export default class App extends React.Component {
   render() {
     return (
         <div id="app">
-            <header className="App-header">
-                <img
-                    src="https://cdn3.iconfinder.com/data/icons/weather-16/256/Tornado-512.png"
-                    className="App-logo"
-                    alt="logo"
-                    style={{ float: "left", marginLeft: "0", marginTop: "5px" }}
-                />
-                <h1
-                    className="App-title"
-                    style={{ float: "left", marginTop: "20px" }}
-                >
-                    My Weather App
-                </h1>
-            </header>
-
+            <Titles/>
                 <div className="main">
 
                         <div id='state'>
 
                             {
-                                this.state.city &&  this.state.country && <p className="weather__key"> Location:
+                                this.state.city &&  this.statecountry && <p className="weather__key"> Location:
                                     <span className="weather__value"> {  this.state.city }, {  this.state.country }</span>
                                 </p>
                             }
