@@ -18,6 +18,7 @@ export default class App extends React.Component {
       country: undefined,
       humidity: undefined,
       description: undefined,
+      icon : undefined,
       futureWeather:undefined
     };
   }
@@ -40,6 +41,8 @@ export default class App extends React.Component {
         maptype: map.getMapTypeId(),
       });
     });
+
+
 
     let marker = new window.google.maps.Marker({
       map: map,
@@ -91,6 +94,7 @@ export default class App extends React.Component {
                 country: data.sys.country,
                 humidity: data.main.humidity,
                 description: data.weather[0].description,
+                icon:'http://openweathermap.org/img/w/'+data.weather[0].icon+'.png',
                 error: ""
             });
         } else {
@@ -100,6 +104,7 @@ export default class App extends React.Component {
                 country: undefined,
                 humidity: undefined,
                 description: undefined,
+                icon:undefined,
                 error: "Please enter the values."
             });
         }
@@ -127,8 +132,10 @@ export default class App extends React.Component {
             <Titles/>
                 <div className="main">
 
-                        <div id='state'>
-
+                        <div id='state'><br/>
+                            {
+                                this.state.city && <p className="App-ftitle">Current Weather</p>
+                            }
                             {
                                 this.state.city && <p className="weather__key"> Location:
 
@@ -149,6 +156,7 @@ export default class App extends React.Component {
                             {
                                 this.state.description && <p className="weather__key"> Conditions:
                                     <span className="weather__value"> { this.state.description } </span>
+                                    <img className="weather_icon" src={this.state.icon}/>
                                 </p>
                             }
                             {
@@ -157,7 +165,7 @@ export default class App extends React.Component {
                             {
                                 this.state.city && this.state.country &&
                                 <div>
-
+                                    <br/><br/>
                                 </div>
                             }
                             {
@@ -183,7 +191,7 @@ export default class App extends React.Component {
                                             let date_t = data.dt_txt;
                                             let icon=data.weather[0].icon;
                                             var iconurl = "http://openweathermap.org/img/w/" + icon + ".png";
-                                            let count  = index+1;
+
                                             return (
                                                 <tr key={index}>
                                                     <td><img src={iconurl}/></td>

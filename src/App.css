@@ -37,6 +37,16 @@
   white-space: nowrap;
 }
 
+.App-ftitle {
+  font-size: 1.5em;
+
+  white-space: nowrap;
+}
+
+.weather_icon {
+height:41px;
+width:41px;
+}
 .App-subtitle {
   font-size: 1.5em;
   margin-left:100%;
@@ -160,8 +170,8 @@ button:active {
 .weather__key {
   color: #f16051;
   border-bottom: solid 2px rgba(255,255,255,0.06);
-  padding: 20px 0 20px 0;
-  font-weight: 400;
+  padding: 20px 0 5px 0;
+  font-weight: 600;
   font-family: sans-serif;
 }
 
