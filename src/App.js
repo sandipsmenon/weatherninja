@@ -1,6 +1,5 @@
 import React from 'react';
 import Titles from './components/Titles';
-
 import './index.css';
 const API_KEY = "7a4ea6e9001f672434026e5156629be3";
 export default class App extends React.Component {
@@ -132,6 +131,7 @@ export default class App extends React.Component {
 
                             {
                                 this.state.city && <p className="weather__key"> Location:
+
                                     <span className="weather__value"> {  this.state.city }, {  this.state.country }</span>
                                 </p>
                             }
@@ -157,7 +157,7 @@ export default class App extends React.Component {
                             {
                                 this.state.city && this.state.country &&
                                 <div>
-                                 
+
                                 </div>
                             }
                             {
@@ -180,16 +180,19 @@ export default class App extends React.Component {
                                     {
                                         this.state.futureWeather.map((data, index) => {
 
-                                            let myIcon = data.dt_txt;
+                                            let date_t = data.dt_txt;
+                                            let icon=data.weather[0].icon;
+                                            var iconurl = "http://openweathermap.org/img/w/" + icon + ".png";
                                             let count  = index+1;
                                             return (
                                                 <tr key={index}>
-                                                    <td >{count}</td>
-                                                    <td>{myIcon}</td>
+                                                    <td><img src={iconurl}/></td>
+                                                    <td>{date_t}</td>
                                                     <td>{data.main.temp_max}</td>
                                                     <td>{data.main.temp_min}</td>
                                                     <td>{data.weather[0].description}</td>
-                                                    <td>{data.main.humidity}</td>
+                                                    <td>{data.main.temp_max}</td>
+
                                                 </tr>
                                             );
                                         })

@@ -185,10 +185,10 @@ button:active {
 
 
 .fixed_header{
-  width: 800px;
+  width: 1000px;
   table-layout: fixed;
   border-collapse: collapse;
-  margin-left: 100%;
+  margin-left: 70%;
 }
 
 .fixed_header tbody{
