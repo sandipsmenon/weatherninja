@@ -165,7 +165,7 @@ export default class App extends React.Component {
                             {
                                 this.state.city && this.state.country &&
                                 <div>
-                                    <br/><br/>
+                                    <br/>
                                 </div>
                             }
                             {
